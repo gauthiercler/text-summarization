@@ -26,21 +26,28 @@ class PreProcessing:
         nltk.download('wordnet')
         nltk.download('averaged_perceptron_tagger')
 
-    def run(self):
+    def run(self, input):
         
         #Set Txtfile Directory
-        paragraphs = open('yourtext.txt', 'r')
-        
-        for p in paragraphs:
+        # paragraphs = open('yourtext.txt', 'r')
+        #
+        # for p in paragraphs:
+        #     self.text += p
+
+        # print(input)
+        for p in input:
             self.text += p
-            
+
+        # self.text = input
         #Remove Special_Chars
         self.text = re.sub(r'\[[0-9]*\]', ' ', self.text)
         self.text = re.sub(r'\s+', ' ', self.text)
 
         self.formatted = re.sub('[^a-zA-Z]', ' ', self.text)
         self.formatted = re.sub(r'\s+', ' ', self.formatted)
-        
+
+        self.sentences = nltk.sent_tokenize(self.text)
+
         #Tokenization
         self.tokens = [word for sent in nltk.sent_tokenize(self.formatted)
                       for word in nltk.word_tokenize(sent)]
@@ -62,9 +69,9 @@ class PreProcessing:
         
         #P.O.S tagging
         self.taglist = nltk.tag.pos_tag(self.tokens)
-        
-p = PreProcessing()
-p.run()
+
+# p = PreProcessing()
+# p.run()
 
 #print(p.tokens)
 #print(p.taglist)

@@ -1,7 +1,5 @@
-import os
-
 from flask import Flask, request, render_template
-from flaskr.main import Main
+from main import Main
 
 
 app = Flask(__name__, instance_relative_config=True)
