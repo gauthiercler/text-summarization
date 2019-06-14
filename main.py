@@ -1,48 +1,47 @@
-from scraper import Scraper
-from preprocessing import PreProcessing
-from processing import Processing
-from build_output import BuildOutput
-
+import pandas as pd
 from gensim.summarization import summarize
 from rouge import Rouge
 
-import kmean
+from cosine_similarity import cosine
+from formatting import gen_serie
+from kmean import kmean
+from scraper import get_article
+from text_rank import text_rank
+from tokenizer import tokenize
 
 
-class Main:
-    def __init__(self):
-        self.s = Scraper()
-        self.pp = PreProcessing()
-        self.p = Processing()
-        self.b = BuildOutput()
-        self.result = ""
-        self.sentences = []
+def compute(topic):
+    raw, ref = get_article(topic)
 
-    def run(self, topic):
-        kmean.run(topic)
+    sent = tokenize(raw)
 
-        self.s.run(topic)
-        raw = ''.join(self.s.data)
-        ratio = len(self.s.base_summary) / len(raw)
-        # print(ratio)
-        ret = summarize(raw, len(self.s.base_summary) / len(raw))
+    df = pd.DataFrame()
 
-        r = Rouge()
-        rouge = r.get_scores(ret, self.s.base_summary)
-        print("Gensim")
-        print(rouge)
+    ratio = len(ref) / len(raw)
 
-        self.pp.run(self.s.data)
-        self.p.run(self.pp.sentences, self.pp.stopwords, self.pp.formatted)
-        nb_sentences_in_base_summary = len(self.s.base_summary.split('.'))
-        self.sentences = self.b.get_n_relevant_sentences(nb_sentences_in_base_summary, self.p.sentence_scores)
-        self.b.build_summary()
-        self.result = self.b.summary
+    # TextRank
+    result = text_rank(raw, sent, ref)
 
-        print("TextRank")
-        rouge = r.get_scores(self.result, self.s.base_summary)
-        print(rouge)
+    r = Rouge()
+    rouge = r.get_scores(result, ref)
+
+    df = df.append(gen_serie('TextRank', rouge, result), ignore_index=True)
+
+    # Gensim
+    ret = summarize(raw, ratio)
+    r = Rouge()
+    rouge = r.get_scores(ret, ref)
+    df = df.append(gen_serie('Gensim', rouge, ret), ignore_index=True)
+
+    # KMean
+    df = df.append(kmean(sent, ref))
+
+    # Cosine
+    df = df.append(cosine(sent, ref), ignore_index=True)
+
+    df.to_csv('out/' + topic + '.csv')
+
+    print(df)
 
 
-m = Main()
-m.run("Algorithm")
+compute("Algorithm")
