@@ -48,5 +48,7 @@ def compute(topic):
 
     print(ref)
 
+    print(df.to_json(orient='records'))
+
 
 compute("Algorithm")
