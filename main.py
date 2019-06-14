@@ -3,7 +3,7 @@ from gensim.summarization import summarize
 from rouge import Rouge
 
 from cosine_similarity import cosine
-from formatting import gen_serie
+from formatting import gen_serie, columns
 from kmean import kmean
 from scraper import get_article
 from text_rank import text_rank
@@ -34,14 +34,19 @@ def compute(topic):
     df = df.append(gen_serie('Gensim', rouge, ret), ignore_index=True)
 
     # KMean
-    df = df.append(kmean(sent, ref))
+    df = df.append(kmean(sent, ret))
 
     # Cosine
     df = df.append(cosine(sent, ref), ignore_index=True)
 
+    # Rearrange columns
+    df = df[columns]
+
     df.to_csv('out/' + topic + '.csv')
 
     print(df)
+
+    print(ref)
 
 
 compute("Algorithm")

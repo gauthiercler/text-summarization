@@ -9,7 +9,7 @@ from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.metrics import pairwise_distances_argmin_min
 
 from formatting import gen_serie
-from tokenizer import textblob_tokenizer
+from tokenizer import textblob_tokenizer, tokenize
 
 warnings.filterwarnings("ignore")
 
@@ -38,28 +38,29 @@ def cluster(texts, ref, clusters_nb):
 
     sentences = []
 
-    nb_sentences_in_base_summary = len(ref.split('.'))
+    nb_sentences_in_base_summary = len(tokenize(ref))
     cnt = 0
     for i in range(0, len(texts)):
         closest, dist = pairwise_distances_argmin_min(km.cluster_centers_, matrix)
         for idx in closest:
             sentences.append(texts[idx])
-            matrix = delete_row_lil(matrix.tolil(), idx)
             cnt += 1
             if cnt == nb_sentences_in_base_summary:
                 break
         else:
+            for idx in closest:
+                matrix = delete_row_lil(matrix.tolil(), idx)
             continue
         break
 
     final = [x for x in texts if x in sentences]
 
-    order_centroids = km.cluster_centers_.argsort()[:, ::-1]
-    terms = vec.get_feature_names()
-    labels = []
-    for i in range(clusters_nb):
-        top_ten_words = [terms[ind] for ind in order_centroids[i, :5]]
-        labels.append(' '.join(top_ten_words))
+    # order_centroids = km.cluster_centers_.argsort()[:, ::-1]
+    # terms = vec.get_feature_names()
+    # labels = []
+    # for i in range(clusters_nb):
+    #     top_ten_words = [terms[ind] for ind in order_centroids[i, :5]]
+    #     labels.append(' '.join(top_ten_words))
 
     return ' '.join(final)
 
@@ -102,7 +103,7 @@ def kmean(text, ref):
     for i in range(2, 11):
         res = cluster(text, ref, i)
         r = Rouge()
-        rouge = r.get_scores(' '. join(res), ref)
+        rouge = r.get_scores(' '.join(res), ref)
         df = df.append(gen_serie('K-mean-' + str(i), rouge, res), ignore_index=True)
 
     return df

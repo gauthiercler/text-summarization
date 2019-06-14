@@ -7,6 +7,7 @@ from textblob import TextBlob
 def tokenize(raw):
     sent = nltk.sent_tokenize(raw)
     sent = list(map(lambda x: x.translate(string.punctuation), sent))
+    sent = [word for word in sent if len(word) >= 10]
     return sent
 
 
