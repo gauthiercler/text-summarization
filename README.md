@@ -42,18 +42,18 @@ As seen in class, cosine similarity through vector space model can be a way to f
 
 #### TextRank
 
-Derived from Google Page Rank algorithm [], TextRank algorithm ranks parts of text. This ranking is defined by the number of relation between sentences. We base our evaluation on word frequency such as TF-IDF. 
+Derived from Google Page Rank algorithm [1], TextRank algorithm ranks parts of text. This ranking is defined by the number of relation between sentences. We base our evaluation on word frequency such as TF-IDF. 
 
 
 #### K-Mean clustering
 
-K-Mean clustering algorithm is an unsupervised classification algorithm frequently used in the world of Machine Learning and Data Science. Its main purpose is to, given a n dimension data set, be able to classify this data in categories (called clusters) according to them features. So using this algorithm, we can classify any type of data (images, text...).
+K-Mean clustering algorithm [2] is an unsupervised classification algorithm frequently used in the world of Machine Learning and Data Science. Its main purpose is to, given a n dimension data set, be able to classify this data in categories (called clusters) according to them features. So using this algorithm, we can classify any type of data (images, text...).
 
 Even K-Mean clustering has a data classification purpose, we decided to try to adapt its feature to text summarization. In our case, if we give as input our sentences from original text to K-Mean, it will classify our sentences by topics. Then we can pick the n most relevant sentences from each cluster/topic to form our summary.
 
 This idea came to us after professor sugested this trail by providing some papers and exchanging with him during appointments.
 
-We based our implementation on these two papers [] and [].
+We based our implementation on these two papers [3] and [4].
 
 <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6258645/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612d702e736c69642e65732f75706c6f6164732f3437353230312f696d616765732f363235363735372f7061737465642d66726f6d2d636c6970626f6172642e706e67.png" style="" data-natural-width="440" data-natural-height="668">
 
@@ -63,7 +63,11 @@ Chart showing data repartition of topic "Artificial Intelligence" over 10 cluste
 
 In order to evalute generated summaries with reference summary, we need a relavant evaluation tool. How can we state in term of number how close is our summary to the reference one.
 
-We decided to use ROUGE evaluation system []. ROUGE evaluation is a method to calculate the percentage of generate summary in reference summary and vice versa
+We decided to use ROUGE evaluation system [5]. ROUGE evaluation is a method to calculate the percentage of generate summary in reference summary and vice versa
+
+Evaluation leans on overlap of N-grams [6] between the system and reference summaries and Longest Common Subsequence (LCS)
+
+For a detailed overview about ROUGE package, please take a look to [7]
 
 ## Results
 
@@ -74,6 +78,9 @@ We decided to use ROUGE evaluation system []. ROUGE evaluation is a method to ca
 <img style="" data-natural-width="726" data-natural-height="440" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6256666/pasted-from-clipboard.png">
 
 <img style="" data-natural-width="605" data-natural-height="340" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6258433/pasted-from-clipboard.png">
+
+As we can see algorithm has been computed on different topics.
+
 
 ## Conclusion
 
@@ -94,14 +101,16 @@ Even K-mean can be in some way an approach for summarize text, our implementatio
 
 [1] Google Page Rank algorithm. https://en.wikipedia.org/wiki/PageRank
 
-[] K-means clustering, Wikipedia. https://en.wikipedia.org/wiki/K-means_clustering
+[2] K-means clustering, Wikipedia. https://en.wikipedia.org/wiki/K-means_clustering
 
-[] Automatic document summarization by sentence extraction. https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
+[3] Automatic document summarization by sentence extraction. https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
 
-[] Automatic extractive single document summarization, An unsupervised approach https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
+[4] Automatic extractive single document summarization, An unsupervised approach https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
 
-[2] ROUGE (Metric), Wikipedia. https://en.wikipedia.org/wiki/ROUGE_(metric)
+[5] ROUGE (Metric), Wikipedia. https://en.wikipedia.org/wiki/ROUGE_(metric)
 
-[3] Lin, Chin-Yew. "Rouge: A package for automatic evaluation of summaries." http://anthology.aclweb.org/W/W04/W04-1013.pdf
+[6] n-gram https://en.wikipedia.org/wiki/N-gram
+
+[7] Lin, Chin-Yew. "Rouge: A package for automatic evaluation of summaries." http://anthology.aclweb.org/W/W04/W04-1013.pdf
 
 
