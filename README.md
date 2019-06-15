@@ -19,10 +19,15 @@ We documented ourself deeply about these subjets and what approachs we could go 
 Our program is defined and is excuted in this order:
 
 **1. Web crawler/scraper**
+
 **2. Pre-processsing, tokenization**
+
 **3. Algorithms computation**
+
 **4. Results formationg**
+
 **5. Results evaluation**
+
 **6. Display output**
 
 
