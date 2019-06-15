@@ -66,7 +66,9 @@ We decided to use ROUGE evalution system.
 ## References
 
 [1] Google Page Rank algorithm. https://en.wikipedia.org/wiki/PageRank
+
 [2] ROUGE (Metric), Wikipedia. https://en.wikipedia.org/wiki/ROUGE_(metric)
+
 [3] Lin, Chin-Yew. "Rouge: A package for automatic evaluation of summaries." http://anthology.aclweb.org/W/W04/W04-1013.pdf
 
 
