@@ -52,9 +52,7 @@ Even K-Mean clustering has a data classification purpose, we decided to try to a
 
 In order to evalute generated summaries with reference summary, we need a relavant evaluation tool. How can we state in term of number how close is our summary to the reference one.
 
-We decided to use ROUGE evalution system.
-
-
+We decided to use ROUGE evaluation system []. ROUGE evaluation is a method to calculate the percentage of generate summary in reference summary and vice versa
 
 ## Results
 
@@ -73,10 +71,10 @@ Even K-mean can be in some way an approach for summarize text, our implementatio
 
 ## Next Steps
 
-- Acronym replace
-- Abstractive approach
-- Topic based
-- Different data source
+- Acronym replace: In our current implementation, acronyms are evaluated as differents words than their real meaning. For example, if we process summarization on "Artificial Intelligence" topic, the presence of many AI acronym occurences in the base text will impact sentences weighting, relation and similarities.
+- Abstractive approach: Even extractive approach could lead to pretty good results (see Gensim summarization), current implementation only select most relevant sentences from base text, unlike Wikipedia summaries that are sometimes (even quite often) generated using abstractive summarization. Abstractive summarization generate new content (sentences, words...) instead of just selecting the part of base text.
+- Topic based: Focusing on defined topics or domains would be a way to improve drasticly algorithm performance. If we stick to only defined topics, we can define other evaluations methods based on these topics;
+- Different data source: To evaluate algorithm performance, it would be relevant to use an other data source (such as News papers articles), or a data source which generate summaries only using extractive summarization.
 
 ## References
 
