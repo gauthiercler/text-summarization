@@ -98,6 +98,8 @@ Even K-mean can be in some way an approach for summarize text, our implementatio
 
 [] Automatic document summarization by sentence extraction. https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
 
+[] Automatic extractive single document summarization, An unsupervised approach https://pdfs.semanticscholar.org/e7a4/8350000cec2025a212e7e3ca533b76351027.pdf
+
 [2] ROUGE (Metric), Wikipedia. https://en.wikipedia.org/wiki/ROUGE_(metric)
 
 [3] Lin, Chin-Yew. "Rouge: A package for automatic evaluation of summaries." http://anthology.aclweb.org/W/W04/W04-1013.pdf
