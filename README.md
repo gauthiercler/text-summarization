@@ -59,6 +59,8 @@ We based our implementation on these two papers [3] and [4].
 
 Chart showing data repartition of topic "Artificial Intelligence" over 10 clusters. Each category shows the top words in the cluster (note that words are stemmed).
 
+To know what are the most important sentences of each cluster, we proceed as follow. After classifying input text in n clusters, we then pick one sentence from each cluster based on minimum distance from sentences of cluster. We apply this until we reach the number of sentences present in the reference summary
+
 ## Evaluation
 
 In order to evalute generated summaries with reference summary, we need a relavant evaluation tool. How can we state in term of number how close is our summary to the reference one.
