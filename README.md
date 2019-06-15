@@ -18,12 +18,12 @@ We documented ourself deeply about these subjets and what approachs we could go 
 
 Our program is defined and is excuted in this order:
 
-1. Web crawler/scraper
-2. Pre-processsing, tokenization
-3. Algorithms computation
-4. Results formationg
-5. Results evaluation
-6. Display output
+**1. Web crawler/scraper**
+**2. Pre-processsing, tokenization**
+**3. Algorithms computation**
+**4. Results formationg**
+**5. Results evaluation**
+**6. Display output**
 
 
 ## Approachs
@@ -47,6 +47,8 @@ K-Mean clustering algorithm is an unsupervised classification algorithm frequent
 Even K-Mean clustering has a data classification purpose, we decided to try to adapt its feature to text summarization. In our case, if we give as input our sentences from original text to K-Mean, it will classify our sentences by topics.
 
 <img src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6258645/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6d656469612d702e736c69642e65732f75706c6f6164732f3437353230312f696d616765732f363235363735372f7061737465642d66726f6d2d636c6970626f6172642e706e67.png" style="" data-natural-width="440" data-natural-height="668">
+
+Chart showing data repartition of topic "Artificial Intelligence" over 10 clusters. Each category shows the top words in the cluster (note that words are stemmed).
 
 ## Evaluation
 
