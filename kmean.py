@@ -49,7 +49,9 @@ def cluster(texts, ref, clusters_nb):
                 break
         else:
             for idx in closest:
-                matrix = delete_row_lil(matrix.tolil(), idx)
+                length, _ = matrix.shape
+                if idx < length:
+                    matrix = delete_row_lil(matrix.tolil(), idx)
             continue
         break
 
