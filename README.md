@@ -71,10 +71,10 @@ Even K-mean can be in some way an approach for summarize text, our implementatio
 
 ## Next Steps
 
-- Acronym replace: In our current implementation, acronyms are evaluated as differents words than their real meaning. For example, if we process summarization on "Artificial Intelligence" topic, the presence of many AI acronym occurences in the base text will impact sentences weighting, relation and similarities.
-- Abstractive approach: Even extractive approach could lead to pretty good results (see Gensim summarization), current implementation only select most relevant sentences from base text, unlike Wikipedia summaries that are sometimes (even quite often) generated using abstractive summarization. Abstractive summarization generate new content (sentences, words...) instead of just selecting the part of base text.
-- Topic based: Focusing on defined topics or domains would be a way to improve drasticly algorithm performance. If we stick to only defined topics, we can define other evaluations methods based on these topics;
-- Different data source: To evaluate algorithm performance, it would be relevant to use an other data source (such as News papers articles), or a data source which generate summaries only using extractive summarization.
+- **Acronym replace:** In our current implementation, acronyms are evaluated as differents words than their real meaning. For example, if we process summarization on "Artificial Intelligence" topic, the presence of many AI acronym occurences in the base text will impact sentences weighting, relation and similarities.
+- **Abstractive approach:** Even extractive approach could lead to pretty good results (see Gensim summarization), current implementation only select most relevant sentences from base text, unlike Wikipedia summaries that are sometimes (even quite often) generated using abstractive summarization. Abstractive summarization generate new content (sentences, words...) instead of just selecting the part of base text.
+- **Topic based:** Focusing on defined topics or domains would be a way to improve drasticly algorithm performance. If we stick to only defined topics, we can define other evaluations methods based on these topics;
+- **Different data source:** To evaluate algorithm performance, it would be relevant to use an other data source (such as News papers articles), or a data source which generate summaries only using extractive summarization.
 
 ## References
 
