@@ -11,7 +11,7 @@ You can find presentation here https://slides.com/googo/text-summarization/
 
 Our motivations for this project were to implement and compare text summarization through different algorithms and state what could be the best ways to achieve text summarization. 
 
-We documented ourself deeply about these subjets and what approachs we could go by.
+We documented ourself deeply about these subjets and what approachs we could go through.
 
 
 ## Pipeline
