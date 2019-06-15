@@ -81,6 +81,12 @@ For a detailed overview about ROUGE package, please take a look to [7]
 
 As we can see algorithm has been computed on different topics.
 
+Overall precision for all algorithms varies from 15% to 30%. It means that 15-30% of the n-grams in the generated summary are also present in the reference summary.
+
+Overall recall gives us quite same values (about 30%) except Gensim which is way higher. It means that 30% of the n-grams in the reference summary are also present in the generated summary. However, K-mean implementation leads to a very low recall no matter how many clusters we choose.
+
+Hower, f score is way tougher to evalue.
+
 
 ## Conclusion
 
