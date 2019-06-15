@@ -85,7 +85,11 @@ Overall precision for all algorithms varies from 15% to 30%. It means that 15-30
 
 Overall recall gives us quite same values (about 30%) except Gensim which is way higher. It means that 30% of the n-grams in the reference summary are also present in the generated summary. However, K-mean implementation leads to a very low recall no matter how many clusters we choose.
 
-Hower, f score is way tougher to evalue.
+Considering f score, it's way tougher to evaluate but its pretty well in agreement with precision and recall (except for K-Mean).
+
+So why K-mean results are not relevant ?
+
+We tried to figure out and tweak the algorithm but we guess that the approach we took was not optimal. It would have been way more relevant to combine K-Mean classification with other algorithm. We could have apply Text Rank Algorithm inside of each cluster.
 
 
 ## Conclusion
