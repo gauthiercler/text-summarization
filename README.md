@@ -1,4 +1,4 @@
-# Text Summarization, a Natural Language Processing project
+# A comparative approach on text summarization
 
 ## Introduction
 
