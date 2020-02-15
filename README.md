@@ -75,11 +75,9 @@ For a detailed overview about ROUGE package, please take a look to [7]
 
 <img style="" data-natural-width="604" data-natural-height="339" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6256676/pasted-from-clipboard.png">
 
-<img data-natural-width="605" data-natural-height="340" style="" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6258432/pasted-from-clipboard.png">
-
 <img style="" data-natural-width="726" data-natural-height="440" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6256666/pasted-from-clipboard.png">
 
-<img style="" data-natural-width="605" data-natural-height="340" data-lazy-loaded="" src="https://s3.amazonaws.com/media-p.slid.es/uploads/475201/images/6258433/pasted-from-clipboard.png">
+
 
 As we can see algorithm has been computed on different topics.
 
